@@ -1,0 +1,920 @@
+# Copyright (C) 2026 PSM Plugins
+# This file is distributed under the GPL v3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: PSM Multi-Currency for WooCommerce 1.0.4\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/psmwoo-multi-currency\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-05-26T07:16:47+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: psmwoo-multi-currency\n"
+
+#. Plugin Name of the plugin
+#: psmwoo-multi-currency.php:3
+msgid "PSM Multi-Currency for WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: psmwoo-multi-currency.php:4
+msgid "https://psmplugins.com/multi-currency-for-woocommerce/"
+msgstr ""
+
+#. Description of the plugin
+#: psmwoo-multi-currency.php:5
+msgid "This plugin enhances your WooCommerce store by adding a multi-currency switcher, making it ideal for businesses with a global customer base. It allows customers to easily switch between currencies, improving their shopping experience and supporting international sales."
+msgstr ""
+
+#. Author of the plugin
+#: psmwoo-multi-currency.php:7
+#: framework/includes/class-psmfr-admin.php:66
+#: framework/includes/class-psmfr-admin.php:67
+msgid "PSM Plugins"
+msgstr ""
+
+#. Author URI of the plugin
+#: psmwoo-multi-currency.php:8
+msgid "https://psmplugins.com"
+msgstr ""
+
+#: framework/includes/class-psmfr-admin.php:43
+#: framework/includes/class-psmfr-admin.php:44
+#: build/framework/index.js:1
+msgid "Framework"
+msgstr ""
+
+#: framework/includes/class-psmfr-admin.php:54
+#: framework/includes/class-psmfr-admin.php:55
+msgid "Other Plugins"
+msgstr ""
+
+#: includes/admin-pages/analytics.php:39
+msgid "All currencies"
+msgstr ""
+
+#: includes/admin-pages/analytics.php:874
+msgid "Top Categories - Items Sold"
+msgstr ""
+
+#: includes/admin-pages/analytics.php:877
+msgid "Category"
+msgstr ""
+
+#: includes/admin-pages/analytics.php:880
+#: includes/admin-pages/analytics.php:964
+msgid "Items Sold"
+msgstr ""
+
+#: includes/admin-pages/analytics.php:883
+#: includes/admin-pages/analytics.php:967
+msgid "Net Sales"
+msgstr ""
+
+#: includes/admin-pages/analytics.php:958
+msgid "Top Products - Items Sold"
+msgstr ""
+
+#: includes/admin-pages/analytics.php:961
+msgid "Product"
+msgstr ""
+
+#: includes/admin-pages/analytics.php:1043
+msgid "Top Coupons - Number of Orders"
+msgstr ""
+
+#: includes/admin-pages/analytics.php:1045
+msgid "Coupon Code"
+msgstr ""
+
+#: includes/admin-pages/analytics.php:1046
+#: includes/admin-pages/analytics.php:1157
+msgid "Orders"
+msgstr ""
+
+#: includes/admin-pages/analytics.php:1047
+msgid "Amount Discounted"
+msgstr ""
+
+#: includes/admin-pages/analytics.php:1151
+msgid "Top Customers - Total Spend"
+msgstr ""
+
+#: includes/admin-pages/analytics.php:1154
+msgid "Customer Name"
+msgstr ""
+
+#: includes/admin-pages/analytics.php:1160
+msgid "Total Spend"
+msgstr ""
+
+#: includes/admin-pages/order-info-widget.php:33
+#: build/admin-page/custom-filters/index.js:1
+#: build/admin-page/index.js:1
+msgid "Currency"
+msgstr ""
+
+#: includes/admin-pages/order-info-widget.php:62
+msgid "Order Currency"
+msgstr ""
+
+#: includes/admin-pages/order-info-widget.php:63
+msgid "Base Currency"
+msgstr ""
+
+#: includes/admin-pages/order-info-widget.php:64
+msgid "Exchange Rate"
+msgstr ""
+
+#: includes/admin-pages/settings.php:40
+#: includes/admin-pages/settings.php:41
+msgid "Multi Currency"
+msgstr ""
+
+#: includes/elementor/switcher.php:23
+msgid "PSM Multi Currency Switcher"
+msgstr ""
+
+#: includes/elementor/switcher.php:102
+msgid "Content"
+msgstr ""
+
+#: includes/elementor/switcher.php:111
+#: build/blocks/switcher/index.js:1
+msgid "SIZE"
+msgstr ""
+
+#: includes/elementor/switcher.php:115
+#: build/admin-page/index.js:1
+#: build/blocks/switcher/index.js:1
+msgid "Medium"
+msgstr ""
+
+#: includes/elementor/switcher.php:116
+#: build/admin-page/index.js:1
+#: build/blocks/switcher/index.js:1
+msgid "Small"
+msgstr ""
+
+#: includes/elementor/switcher.php:125
+#: build/blocks/switcher/index.js:1
+msgid "COUNTRY FLAG"
+msgstr ""
+
+#: includes/elementor/switcher.php:136
+#: build/blocks/switcher/index.js:1
+msgid "CURRENCY NAME"
+msgstr ""
+
+#: includes/elementor/switcher.php:147
+#: build/blocks/switcher/index.js:1
+msgid "CURRENCY SYMBOL"
+msgstr ""
+
+#: includes/elementor/switcher.php:158
+#: build/blocks/switcher/index.js:1
+msgid "CURRENCY CODE"
+msgstr ""
+
+#: includes/elementor/switcher.php:252
+#: includes/elementor/switcher.php:255
+#: build/blocks/switcher/index.js:1
+msgid "Pound Sterling"
+msgstr ""
+
+#: includes/emails/exchange-rate-notification/email.php:37
+msgid "HTML"
+msgstr ""
+
+#. translators: %s: list of placeholders
+#: includes/emails/exchange-rate-notification/email.php:68
+#, php-format
+msgid "Available placeholders: %s"
+msgstr ""
+
+#: includes/emails/exchange-rate-notification/email.php:71
+msgid "Enable/Disable"
+msgstr ""
+
+#: includes/emails/exchange-rate-notification/email.php:73
+msgid "Enable this email notification"
+msgstr ""
+
+#: includes/emails/exchange-rate-notification/email.php:78
+msgid "Subject"
+msgstr ""
+
+#: includes/emails/exchange-rate-notification/email.php:87
+msgid "Email type"
+msgstr ""
+
+#: includes/emails/exchange-rate-notification/email.php:89
+msgid "Choose which format of email to send."
+msgstr ""
+
+#: includes/rest-api/settings.php:55
+#: includes/rest-api/switcher.php:44
+msgid "Invalid currency code."
+msgstr ""
+
+#: includes/rest-api/settings.php:59
+msgid "Currency code already exists."
+msgstr ""
+
+#: includes/rest-api/settings.php:84
+#: includes/rest-api/settings.php:199
+msgid "Currency not set."
+msgstr ""
+
+#: includes/rest-api/settings.php:88
+msgid "Cannot update store currency."
+msgstr ""
+
+#: includes/rest-api/settings.php:96
+msgid "Invalid enabled value."
+msgstr ""
+
+#: includes/rest-api/settings.php:104
+msgid "Invalid currency position."
+msgstr ""
+
+#: includes/rest-api/settings.php:121
+msgid "Invalid rounding."
+msgstr ""
+
+#: includes/rest-api/settings.php:129
+msgid "Invalid rounding to."
+msgstr ""
+
+#: includes/rest-api/settings.php:140
+#: includes/rest-api/settings.php:151
+msgid "Invalid rounding minus."
+msgstr ""
+
+#: includes/rest-api/settings.php:162
+msgid "Invalid rate mode."
+msgstr ""
+
+#: includes/rest-api/settings.php:170
+msgid "Invalid fee."
+msgstr ""
+
+#: includes/rest-api/settings.php:181
+msgid "Invalid fee mode."
+msgstr ""
+
+#: includes/rest-api/settings.php:203
+msgid "Cannot delete store currency."
+msgstr ""
+
+#: includes/rest-api/settings.php:240
+#: includes/rest-api/settings.php:244
+msgid "Invalid order."
+msgstr ""
+
+#: psmwoo-multi-currency.php:109
+#: build/blocks/switcher/index.js:1
+msgid "Settings"
+msgstr ""
+
+#: psmwoo-multi-currency.php:124
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "Documentation"
+msgstr ""
+
+#: psmwoo-multi-currency.php:125
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "Support"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Expand"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Collapse"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Left"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Right"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Left with space"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Right with space"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Disabled"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Up"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Down"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Nearest"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Auto"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Manual"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Fixed"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Percentage"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "January"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "February"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "March"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "April"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "May"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "June"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "July"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "August"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "September"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "October"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "November"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "December"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "Sun"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "Mon"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "Tue"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "Wed"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "Thu"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "Fri"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "Sat"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "AM"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "PM"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Add new currency"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Please select the currency"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Currency is required!"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Currency is already present!"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "Submit"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Cancel"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Refresh exchange rates"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "This field can't be empty"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Currency Position"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "This controls the position of the currency symbol."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Thousand Separator"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "The character used to separate thousands."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Decimal Separator"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "The character used to separate the decimal part."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Decimal"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "The number of decimal places."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Rate Mode"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "This controls the rate mode for the currency. Auto mode will automatically update the exchange rate from exchange server."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Rate"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "The exchange rate for the currency."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Fee"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "The fee for the currency. Depending on the fee mode below (Fixed or Percentage), this fee will be added to the converted price."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Fee Mode"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "This controls the fee mode for the currency."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Rounding"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "This controls the rounding method for the currency."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Rounding To"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Round the converted price to achieve the target ending. Eg: 182.46 becomes 190 when rounding up to the nearest 10."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Rounding Minus"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Deduct this amount from the above rounded price. Eg: 190 becomes 189.99 after deducting 0.01"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Are you sure you want to delete this currency?"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Preview"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Action"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "Error"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "Something went wrong!"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "Success"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Order updated successfully"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Checkout"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "These settings allow you to configure the checkout options for different currencies."
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "Settings updated successfully!"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Enable different currency for checkout"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Enable this option to allow customers to check out in a currency different from the one used when adding items to their cart. This lets you control the currencies available for checkout and configure payment gateways accordingly, while still displaying product prices in all of the store currencies."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Status"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Payment Methods"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "All Payment Methods"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Display a notice for currency enforcement"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Display a notice on the checkout page to inform customers that payment will be processed in the currency other than the one they selected. There are two ways currency enforcement can be applied: Currency selected by the customer is disabled for checkout, or payment is enforced in a specific currency based on the customer’s billing or shipping country."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Enter the notice to display on the checkout page."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "You can use these placeholders:"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Force payment in a specific currency based on the customer’s billing or shipping country (Pro)"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Enforce payment in a specific currency based on the customer's billing or shipping country. This setting overrides the currency selected by the customer and ensures payment is processed in the currency assigned to their country. If no currency is configured for the customer’s country, the system will default to the primary currency."
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "Settings reset successfully!"
+msgstr ""
+
+#: build/admin-page/index.js:1
+#: build/framework/index.js:1
+msgid "Reset"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Before short description"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "After short description"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Currency switcher will look like this on the front end."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Enable switcher on single product page"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Enable or disable the currency switcher on single product page."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Single product page position"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Select the position of the currency switcher on single product page."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Switcher size"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Select the size of the currency switcher for the above positions."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Switcher options"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Show Flag"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Show Currency Name"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Show Currency Symbol"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Show Currency Code"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Customize the currency switcher options for above positions."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Below is a preview of the shortcode you can use to display the currency switcher on your site."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Copy to clipboard"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Shortcode copied to clipboard."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Single Product Page"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Shortcode"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Advanced"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "These settings allow you to configure the advanced options for the multi-currency plugin."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Currency exchange rate APIs"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Select the exchange rate API, which will be used to update the exchange rates."
+msgstr ""
+
+#: build/admin-page/index.js:1
+#, js-format
+msgid "Please %s to see the supported currencies and the number of API calls allowed in the free version."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "click here"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Auto-update exchange rates (Pro)"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Automatically update exchange rates at regular intervals."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Auto-detect currency by country (Pro)"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "The display currency will automatically be selected based on the customer's country when they visit for the first time. This is determined using the customer's IP address. After the initial selection, the customer can manually change the currency at any time. If no specific countries are assigned to a currency, we will automatically detect the most appropriate currency based on the customer's location. If no suitable currency is found, the default currency will be applied."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Use cache plugin"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Enable this if you are using a caching plugin and the currency does not remain after being switched by customers in the frontend."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Pro-Features"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "These are the features available in the Pro version of the plugin."
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Feature"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Free Version"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Pro Version"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Get Pro"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Currencies"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Display"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Pro Features"
+msgstr ""
+
+#: build/admin-page/index.js:1
+msgid "Multi Currency for WooCommerce"
+msgstr ""
+
+#: build/framework/index.js:1
+msgid "Primary Color"
+msgstr ""
+
+#: build/framework/index.js:1
+msgid "Choose the link color as per your theme. This will be used for the links on the frontend."
+msgstr ""
+
+#: build/framework/index.js:1
+msgid "Primary color is required!"
+msgstr ""
+
+#: build/framework/index.js:1
+msgid "Link Color"
+msgstr ""
+
+#: build/framework/index.js:1
+msgid "Link color is required!"
+msgstr ""
+
+#: build/framework/index.js:1
+msgid "Danger Color"
+msgstr ""
+
+#: build/framework/index.js:1
+msgid "Choose the danger color."
+msgstr ""
+
+#: build/framework/index.js:1
+msgid "Danger color is required!"
+msgstr ""
+
+#: build/framework/index.js:1
+msgid "Success Color"
+msgstr ""
+
+#: build/framework/index.js:1
+msgid "Choose the success color."
+msgstr ""
+
+#: build/framework/index.js:1
+msgid "Success color is required!"
+msgstr ""
+
+#: build/framework/index.js:1
+msgid "Warning Color"
+msgstr ""
+
+#: build/framework/index.js:1
+msgid "Choose the warning color."
+msgstr ""
+
+#: build/framework/index.js:1
+msgid "Warning color is required!"
+msgstr ""
+
+#: build/framework/index.js:1
+msgid "Popup Z-Index"
+msgstr ""
+
+#: build/framework/index.js:1
+msgid "Choose the popup z-index."
+msgstr ""
+
+#: build/framework/index.js:1
+msgid "Popup z-index is required!"
+msgstr ""
+
+#: build/blocks/switcher/block.json
+msgctxt "block title"
+msgid "PSM Multi Currency Switcher"
+msgstr ""
+
+#: build/blocks/switcher/block.json
+msgctxt "block description"
+msgid "A simple block to display a multi currency switcher."
+msgstr ""

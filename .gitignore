@@ -1,0 +1,64 @@
+# WordPress .gitignore
+
+# Environment & Sensitive Configuration
+wp-config.php
+.env
+.env.*
+
+# Uploads & User Content (uncomment if you don't want uploads tracked in git)
+# wp-content/uploads/
+# wp-content/blogs.dir/
+
+# Caches, Upgrades & Backups
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backups/
+wp-content/backup-db/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+
+# Large archives and database dumps
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.sql
+*.sql.gz
+
+# Logs
+*.log
+wp-content/debug.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node & Package Managers
+node_modules/
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# IDE & Editor Files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.agents/
+.gemini/
+
+# SASS / CSS Source Maps (optional)
+*.css.map
+*.js.map

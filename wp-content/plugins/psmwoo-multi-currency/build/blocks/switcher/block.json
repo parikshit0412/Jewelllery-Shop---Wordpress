@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "psmmc/switcher",
+  "version": "0.1.0",
+  "title": "PSM Multi Currency Switcher",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "A simple block to display a multi currency switcher.",
+  "example": {},
+  "attributes": {
+    "switcherSize": {
+      "type": "string",
+      "default": "medium"
+    },
+    "switcherFlag": {
+      "type": "boolean",
+      "default": true
+    },
+    "switcherCurrencyName": {
+      "type": "boolean",
+      "default": true
+    },
+    "switcherCurrencySymbol": {
+      "type": "boolean",
+      "default": true
+    },
+    "switcherCurrencyCode": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "psmwoo-multi-currency",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

@@ -1,0 +1,102 @@
+/* 
+	PSM FRAMEWORK GLOBAL STYLES PLACEHOLDER 
+	This file is used as placeholder to include global inline styles of the PSM Framework.
+*/
+
+/* Other plugins CSS starts */
+.psmraq-os-plugin-showcase {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px 20px;
+}
+.psmraq-os-showcase-header, .psmraq-os-showcase-footer { /* Header & Footer Styling */
+	text-align: center;
+	margin-bottom: 50px;
+}
+.psmraq-os-showcase-footer {
+	margin-top: 50px;
+	border-top: 1px solid #e5e7eb;
+	padding-top: 10px;
+}
+.psmraq-os-showcase-header h2, .psmraq-os-showcase-footer h3 {
+	font-size: 2rem;
+	color: #111827;
+	margin-bottom: 15px;
+	line-height: 2rem;
+}
+.psmraq-os-showcase-header p, .psmraq-os-showcase-footer p {
+	color: #4b5563;
+	max-width: 700px;
+	margin: 0 auto;
+	line-height: 1.6;
+}
+.psmraq-os-grid-container { /* Grid Logic: Forces 3 columns */
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 40px;
+}
+.psmraq-os-modern-card { /* Card Styling */
+	background: #ffffff;
+	border-radius: 12px;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	transition: transform 0.3s ease;
+}
+.psmraq-os-image-wrapper {
+	height: 180px;
+	background: #eee;
+}
+.psmraq-os-card-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.psmraq-os-card-body {
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+.psmraq-os-card-body h3 {
+	margin: 0 0 12px 0;
+	line-height: 1.25rem;
+}
+.psmraq-os-card-body p {
+	font-size: 0.95rem;
+	color: #4b5563;
+	line-height: 1.5;
+	margin-bottom: 20px;
+	/* Keeps text between 3-5 lines */
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.psmraq-os-card-link {
+	margin-top: auto;
+	background: #2271b1;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	padding: 12px;
+	border-radius: 6px;
+	font-weight: 600;
+	font-size: 0.9rem;
+	border: 1px solid #2271b1;
+}
+.psmraq-os-card-link:hover {
+	background: #f9fafb;
+}
+@media (max-width: 992px) { /* Responsive Adjustments */
+	.psmraq-os-grid-container {
+		grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+	}
+}
+@media (max-width: 650px) { /* Responsive Adjustments */
+	.psmraq-os-grid-container {
+		grid-template-columns: 1fr; /* 1 per row on mobile */
+	}
+}
+/* Other plugins CSS ends */
