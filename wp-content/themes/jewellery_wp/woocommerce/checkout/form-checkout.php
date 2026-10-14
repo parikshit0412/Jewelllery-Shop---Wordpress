@@ -34,6 +34,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 		<div class="row" id="customer_details">
 			<div class="col-lg-7">
+				<?php if ( function_exists( 'wc_coupons_enabled' ) && wc_coupons_enabled() ) : ?>
 				<div class="wrap-coupon">
     <h5 class="mb-12 heading_cmn_white">
         Have a coupon?
@@ -62,6 +63,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 	<div class="coupon-message"></div>
 	
 </div>
+				<?php endif; ?>
 					<?php if ( $checkout->get_checkout_fields() ) : ?>
 
 		<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>

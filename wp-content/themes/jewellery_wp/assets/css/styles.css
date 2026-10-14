@@ -500,6 +500,7 @@ button.woocommerce-form-register__submit:hover,
 }
 .woocommerce-cart-form{margin-top: 20px;}
 .woocommerce a.button.add_to_cart_button,
+.woocommerce .product-action_bot a.button,
 .woocommerce button.single_add_to_cart_button {
     display: inline-flex;
     align-items: center;
@@ -10721,6 +10722,43 @@ form select,
 }
 .product-action_list .icon {
   font-size: 20px;
+}
+.product-action_list .box-icon .woosw-btn,
+.product-action_list .box-icon .woosc-btn,
+.product-action_list .box-icon .woosq-btn {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 50% !important;
+  color: #000000 !important;
+  cursor: pointer !important;
+}
+.product-action_list .box-icon .woosw-btn .woosw-btn-icon,
+.product-action_list .box-icon .woosc-btn .woosc-btn-icon,
+.product-action_list .box-icon .woosq-btn .woosq-btn-icon {
+  font-size: 18px !important;
+  color: inherit !important;
+  line-height: 1 !important;
+}
+.product-action_list .box-icon:hover .woosw-btn,
+.product-action_list .box-icon:hover .woosc-btn,
+.product-action_list .box-icon:hover .woosq-btn {
+  color: #ffffff !important;
+}
+.product-action_list .box-icon:hover .woosw-btn .woosw-btn-icon,
+.product-action_list .box-icon:hover .woosc-btn .woosc-btn-icon,
+.product-action_list .box-icon:hover .woosq-btn .woosq-btn-icon {
+  color: #ffffff !important;
+}
+.product-action_list .box-icon .woosw-btn.woosw-added .woosw-btn-icon {
+  color: #eac02c !important;
 }
 .product-action_list.style-row {
   flex-direction: row;
@@ -21920,4 +21958,29 @@ h3.comment-reply-title{
         margin: 0 auto;
     }
 }
+
+/* Sitewide Discount Suppression: Hide all discount elements, badges, coupons, and offers */
+.onsale,
+.sale-off,
+.badge-sale,
+.discount,
+.box-discount,
+.group-discount,
+.get-discout-wrap,
+.wrap-coupon,
+.custom-coupon-form,
+.ip-discount-code,
+.coupon-message,
+.cart-discount,
+.coupon,
+.tf-cart-totals-discounts,
+.tf-product-volume-discount,
+.shop-sale-text,
+.woocommerce-form-coupon-toggle,
+.woocommerce-form-coupon,
+del .woocommerce-Price-amount,
+.price del {
+    display: none !important;
+}
+
 

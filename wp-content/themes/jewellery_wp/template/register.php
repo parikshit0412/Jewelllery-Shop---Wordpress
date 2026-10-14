@@ -55,7 +55,7 @@ get_header(); ?>
             <div class="col-right">
                 <h1 class="heading heading_cmn_white">Have An Account</h1>
                 <p class="h6 text-sub">
-                    Welcome back, log in to your account to enhance your shopping experience, receive coupons, and the best discount codes.
+                    Welcome back, log in to your account to enhance your shopping experience, track orders, and manage your wishlist.
                 </p>
                 <a href="<?php echo home_url('login'); ?>" class="btn_log tf-btn animate-btn cmnylwbtnsam">
                     Login

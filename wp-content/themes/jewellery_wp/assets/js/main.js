@@ -240,6 +240,33 @@
             }
         }
     });
+    // Enforce login for wishlist interactions
+    $(document).on('click', '.woosw-btn, .product-action_list li.wishlist, .btn-move-to-wishlist, .yith-wcwl-items-count, .woosw-show', function (e) {
+        if (typeof wc_custom !== 'undefined' && !wc_custom.is_logged_in) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            var loginUrl = wc_custom.login_url ? wc_custom.login_url : '/login/';
+            window.location.href = loginUrl + '?redirect_to=' + encodeURIComponent(window.location.href);
+            return false;
+        }
+    });
+
+    // Delegate click on product action wishlist box-icon to trigger woosw-btn
+    $(document).on('click', '.product-action_list li.wishlist .box-icon', function (e) {
+        if (typeof wc_custom !== 'undefined' && !wc_custom.is_logged_in) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            var loginUrl = wc_custom.login_url ? wc_custom.login_url : '/login/';
+            window.location.href = loginUrl + '?redirect_to=' + encodeURIComponent(window.location.href);
+            return false;
+        }
+        if (!$(e.target).closest('.woosw-btn').length) {
+            var $btn = $(this).find('.woosw-btn');
+            if ($btn.length) {
+                $btn[0].click();
+            }
+        }
+    });
 
     /* Move to Wishlist from Cart / Mini-Cart
     -------------------------------------------------------------------------*/
@@ -1938,13 +1965,13 @@ var handleMobileMenu = function () {
                         .html(response.data.message);
 
 
-                    // Redirect to My Account
+                    // Redirect to Login page after showing message
                     setTimeout(function () {
 
                         window.location.href =
                             response.data.redirect;
 
-                    }, 500);
+                    }, 2500);
 
                 } else {
 

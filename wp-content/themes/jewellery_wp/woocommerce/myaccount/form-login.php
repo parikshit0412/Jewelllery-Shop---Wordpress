@@ -97,7 +97,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 			<?php else : ?>
 
-				<p><?php esc_html_e( 'A link to set a new password will be sent to your email address.', 'woocommerce' ); ?></p>
+				<p class="woocommerce-verification-notice-text"><?php esc_html_e( 'An email verification link to activate your account and set your password will be sent to your email address.', 'jewellery_wp' ); ?></p>
 
 			<?php endif; ?>
 

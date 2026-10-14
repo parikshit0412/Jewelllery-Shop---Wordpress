@@ -25,11 +25,8 @@ global $product;
 ?>
 <div class="tf-product-heading">
 	<div class="product-info-price price-wrap">
-		<div class="price-new price-on-sale h2 fw-4">
+		<div class="price-new h2 fw-4">
 			<p class="<?php echo esc_attr(apply_filters('woocommerce_product_price_class', 'price')); ?>"><?php echo $product->get_price_html(); ?></p>
 		</div>
-	</div>
-	<div class="tf-product-info-countdown">
-		<?php echo do_shortcode('[hurrytimer id="160"]'); ?>
 	</div>
 </div>

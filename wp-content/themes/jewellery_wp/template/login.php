@@ -50,7 +50,21 @@ get_header(); ?>
 
                     </div>
 
-                    <div class="login-message"></div>
+                    <div class="login-message">
+                        <?php if ( isset($_GET['verified']) && '1' === $_GET['verified'] ) : ?>
+                            <div class="success" style="padding: 12px 16px; margin-bottom: 15px; border-radius: 4px; background: #e8f5e9; color: #2e7d32; font-size: 14px; border-left: 4px solid #2e7d32; display:block;">
+                                <?php esc_html_e('Your email has been verified successfully! You can now log in below.', 'jewellery_wp'); ?>
+                            </div>
+                        <?php elseif ( isset($_GET['registered']) && 'verify' === $_GET['registered'] ) : ?>
+                            <div class="success" style="padding: 12px 16px; margin-bottom: 15px; border-radius: 4px; background: #e3f2fd; color: #1565c0; font-size: 14px; border-left: 4px solid #1565c0; display:block;">
+                                <?php esc_html_e('Registration successful! Please check your email inbox to verify your account before logging in.', 'jewellery_wp'); ?>
+                            </div>
+                        <?php elseif ( isset($_GET['resent']) && '1' === $_GET['resent'] ) : ?>
+                            <div class="success" style="padding: 12px 16px; margin-bottom: 15px; border-radius: 4px; background: #e8f5e9; color: #2e7d32; font-size: 14px; border-left: 4px solid #2e7d32; display:block;">
+                                <?php esc_html_e('A new verification email has been sent. Please check your inbox.', 'jewellery_wp'); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
 
                     <button id="btnLogin"
                         type="submit"
@@ -62,31 +76,11 @@ get_header(); ?>
             <div class="col-right">
                 <h1 class="heading heading_cmn_white">New Customer</h1>
                 <p class="h6 text-sub">
-                    For customers who register a new account, we are offering you a ₹500 shopping voucher and a 30% discount code. Happy
-                    shopping!
+                    Create an account with us to enjoy a seamless shopping experience, track your orders, manage your wishlist, and more.
                 </p>
-                <div class="get-discout-wrap">
-                    <h6 class="fw-semibold mb-16 heading_cmn_white">Sign up and get your discount code</h6>
-                    <div class="box-discount style-2">
-                        <div class="discount-top">
-                            <div class="discount-off">
-                                <p class="h6">Discount</p>
-                                <h6 class="sale-off h6 fw-bold heading_cmn_white">30% OFF</h6>
-                            </div>
-                            <div class="discount-from">
-                                <p class="h6">
-                                    For all orders <br class="d-sm-none"> form ₹15000
-                                </p>
-                            </div>
-                        </div>
-                        <div class="discount-bot">
-                            <h6 class="text-nowrap fw-bold heading_cmn_white">Code: ********</h6>
-                            <a href="<?php echo home_url('/register'); ?>" class="tf-btn animate-btn fw-bold">
-                                Register
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <a href="<?php echo home_url('/register'); ?>" class="btn_log tf-btn animate-btn cmnylwbtnsam">
+                    Register
+                </a>
             </div>
         </div>
     </div>

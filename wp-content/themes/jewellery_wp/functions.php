@@ -157,7 +157,9 @@ function jewellery_wp_scripts()
 
 
 
-	wp_enqueue_script('jewellery_wp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+	if (file_exists(get_template_directory() . '/js/navigation.js')) {
+		wp_enqueue_script('jewellery_wp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+	}
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
@@ -190,6 +192,13 @@ require get_template_directory() . '/inc/customizer.php';
  */
 if (defined('JETPACK__VERSION')) {
 	require get_template_directory() . '/inc/jetpack.php';
+}
+
+/**
+ * Customer Email Verification for WooCommerce
+ */
+if ( file_exists( get_template_directory() . '/inc/email-verification.php' ) ) {
+	require_once get_template_directory() . '/inc/email-verification.php';
 }
 
 function add_menu_link_class($atts, $item, $args)
@@ -250,9 +259,10 @@ function mytheme_assets()
 
 
 	wp_localize_script('custom-register', 'wc_custom', [
-		'ajax_url' => admin_url('admin-ajax.php'),
-        'nonce'    => wp_create_nonce('update_profile_image'),
-		
+		'ajax_url'     => admin_url('admin-ajax.php'),
+		'nonce'        => wp_create_nonce('update_profile_image'),
+		'is_logged_in' => is_user_logged_in(),
+		'login_url'    => home_url('/login/'),
 	]);
 }
 add_action('wp_enqueue_scripts', 'mytheme_assets');
@@ -278,6 +288,15 @@ add_action('wp_ajax_nopriv_move_cart_item_to_wishlist', 'custom_move_cart_item_t
 
 function custom_move_cart_item_to_wishlist()
 {
+	if (!is_user_logged_in()) {
+		wp_send_json_error(array(
+			'message'       => __('Please log in to use your Wishlist.', 'jewellery_wp'),
+			'require_login' => true,
+			'redirect_url'  => home_url('/login/')
+		));
+		return;
+	}
+
 	$cart_item_key = isset($_POST['cart_item_key']) ? sanitize_text_field(wp_unslash($_POST['cart_item_key'])) : '';
 	$product_id = isset($_POST['product_id']) ? absint($_POST['product_id']) : 0;
 
@@ -304,7 +323,7 @@ function custom_move_cart_item_to_wishlist()
 				] + $products;
 				update_option('woosw_list_' . $key, $products, false);
 				Woosw_Helper::clear_internal_cache($key);
-				if (class_exists('WPCleverWoosw')) {
+				if (class_exists('WPCleverWoosw') && is_callable(array('WPCleverWoosw', 'update_product_count'))) {
 					WPCleverWoosw::update_product_count($product_id, 'add');
 				}
 			}
@@ -1302,20 +1321,16 @@ function custom_ajax_register()
 
 
 	// -----------------------------
-	// Auto login
+	// Email Verification: Do NOT auto login
 	// -----------------------------
 
-	wp_set_auth_cookie($user_id, true);
+	update_user_meta($user_id, '_is_email_verified', '0');
 
-	wp_set_current_user($user_id);
+	if (class_exists('Jewellery_Email_Verification')) {
+		Jewellery_Email_Verification::get_instance()->send_verification_email($user_id);
+	}
 
-
-	// -----------------------------
-	// My Account URL
-	// -----------------------------
-
-	$redirect_url = wc_get_page_permalink('myaccount');
-
+	$redirect_url = add_query_arg('registered', 'verify', home_url('/login/'));
 
 	// -----------------------------
 	// Success response
@@ -1323,7 +1338,7 @@ function custom_ajax_register()
 
 	wp_send_json_success(
 		array(
-			'message'  => 'Registration successful.',
+			'message'  => sprintf(__('Registration successful! A verification link has been sent to %s. Please check your inbox and verify your email before logging in.', 'jewellery_wp'), esc_html($email)),
 			'redirect' => $redirect_url,
 		)
 	);
@@ -1335,24 +1350,50 @@ add_action('wp_ajax_custom_ajax_login', 'custom_ajax_login');
 
 function custom_ajax_login()
 {
-
-
 	$username = sanitize_user(wp_unslash($_POST['username'] ?? ''));
 	$password = $_POST['password'] ?? '';
 	$remember = !empty($_POST['remember']);
 
 	if (!$username || !$password) {
 		wp_send_json_error([
-			'message' => 'Please enter your email and password.'
+			'message' => __('Please enter your email and password.', 'jewellery_wp')
 		]);
 	}
 
 	// Allow email login
 	if (is_email($username)) {
-		$user = get_user_by('email', $username);
+		$user_obj = get_user_by('email', $username);
 
-		if ($user) {
-			$username = $user->user_login;
+		if ($user_obj) {
+			$username = $user_obj->user_login;
+		}
+	} else {
+		$user_obj = get_user_by('login', $username);
+	}
+
+	// Check if this account exists and is unverified (if password is correct)
+	if ($user_obj && class_exists('Jewellery_Email_Verification')) {
+		if (!user_can($user_obj, 'manage_options') && !Jewellery_Email_Verification::is_user_verified($user_obj)) {
+			if (wp_check_password($password, $user_obj->user_pass, $user_obj->ID)) {
+				$resend_url = wp_nonce_url(
+					add_query_arg(
+						array(
+							'action'     => 'resend_verification',
+							'user_email' => rawurlencode($user_obj->user_email),
+						),
+						home_url('/login/')
+					),
+					'jewellery_resend_verification'
+				);
+
+				wp_send_json_error([
+					'message' => sprintf(
+						__('Your email address (%1$s) has not been verified yet. Please check your inbox or <a href="%2$s" style="text-decoration:underline; font-weight:600; color:#d97706;">click here to resend the verification email</a>.', 'jewellery_wp'),
+						esc_html($user_obj->user_email),
+						esc_url($resend_url)
+					)
+				]);
+			}
 		}
 	}
 
@@ -1365,8 +1406,32 @@ function custom_ajax_login()
 	$user = wp_signon($credentials, is_ssl());
 
 	if (is_wp_error($user)) {
+		$error_message = $user->get_error_message();
 		wp_send_json_error([
-			'message' => 'Invalid email or password.'
+			'message' => !empty($error_message) ? $error_message : __('Invalid email or password.', 'jewellery_wp')
+		]);
+	}
+
+	// Safety check: ensure unverified users cannot login even if signon succeeded
+	if (class_exists('Jewellery_Email_Verification') && !user_can($user, 'manage_options') && !Jewellery_Email_Verification::is_user_verified($user)) {
+		wp_clear_auth_cookie();
+		$resend_url = wp_nonce_url(
+			add_query_arg(
+				array(
+					'action'     => 'resend_verification',
+					'user_email' => rawurlencode($user->user_email),
+				),
+				home_url('/login/')
+			),
+			'jewellery_resend_verification'
+		);
+
+		wp_send_json_error([
+			'message' => sprintf(
+				__('Your email address (%1$s) has not been verified yet. Please check your inbox or <a href="%2$s" style="text-decoration:underline; font-weight:600; color:#d97706;">click here to resend the verification email</a>.', 'jewellery_wp'),
+				esc_html($user->user_email),
+				esc_url($resend_url)
+			)
 		]);
 	}
 
@@ -1374,7 +1439,7 @@ function custom_ajax_login()
 	wp_set_auth_cookie($user->ID, $remember);
 
 	wp_send_json_success([
-		'message'  => 'Login successful.',
+		'message'  => __('Login successful.', 'jewellery_wp'),
 		'redirect' => wc_get_page_permalink('myaccount'),
 	]);
 }
@@ -1466,13 +1531,7 @@ function custom_faqs_content()
                                                         shipping?</div>
                                                     <div class="h6 fw-4 text">Yes</div>
                                                 </li>
-                                                <li>
-                                                    <div class="h6 fw-6 text-black title">Does the product cost include
-                                                        product discounts?</div>
-                                                    <div class="h6 fw-4 text">Yes. However, any applicable coupon can be
-                                                        applied at the time of
-                                                        payment.</div>
-                                                </li>
+
                                                 <li>
                                                     <div class="h6 fw-6 text-black title">Are there any other hidden
                                                         costs?</div>
@@ -1546,9 +1605,10 @@ class Mobile_Menu_Walker extends Walker_Nav_Menu {
     // Start <li>
     public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
 
+        $classes = (isset($item->classes) && is_array($item->classes)) ? $item->classes : (array) ($item->classes ?? []);
         $has_children = in_array(
             'menu-item-has-children',
-            $item->classes
+            $classes
         );
 
         if ($depth === 0) {
@@ -1703,3 +1763,11 @@ function update_profile_image() {
         'attachment_id' => $attachment_id
     ));
 }
+
+/**
+ * Sitewide Discount Suppression
+ * Ensure no coupons, discounts, sale badges, or sale strikethrough prices appear anywhere.
+ */
+add_filter( 'woocommerce_coupons_enabled', '__return_false', 999 );
+add_filter( 'woocommerce_product_is_on_sale', '__return_false', 999 );
+add_filter( 'woocommerce_sale_flash', '__return_empty_string', 999 );
