@@ -28,5 +28,5 @@ jobs:
           remote-user: ${{ secrets.SSH_USERNAME || secrets.FTP_USERNAME }}
           remote-password: ${{ secrets.SSH_PASSWORD || secrets.FTP_PASSWORD }}
           local-path: "./wp-content/themes/jewellery_wp"
-          remote-path: "public_html/wordpress/wp-content/themes/jewellery_wp"
+          remote-path: "/home/u385801108/public_html/wordpress/wp-content/themes/jewellery_wp"
           sync: "full"
