@@ -26,8 +26,11 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
+          security: loose
+          port: 21
+          timeout: 180000
           local-dir: ./wp-content/themes/jewellery_wp/
-          server-dir: public_html/wp-content/themes/jewellery_wp/
+          server-dir: public_html/wordpress/wp-content/themes/jewellery_wp/
           exclude: |
             **/.git*
             **/.git*/**
