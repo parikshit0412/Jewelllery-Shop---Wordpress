@@ -19,22 +19,14 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: 🚀 Sync Theme via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: 🚀 Deploy Theme via SFTP (SSH)
+        uses: milanmk/actions-file-deployer@master
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
-          port: 21
-          timeout: 180000
-          log-level: verbose
-          local-dir: ./wp-content/themes/jewellery_wp/
-          server-dir: public_html/wordpress/wp-content/themes/jewellery_wp/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/.DS_Store
-            **/Thumbs.db
-            *.map
+          remote-protocol: "sftp"
+          remote-host: ${{ secrets.SSH_HOST || secrets.FTP_SERVER }}
+          remote-port: ${{ secrets.SSH_PORT || 65002 }}
+          remote-user: ${{ secrets.SSH_USERNAME || secrets.FTP_USERNAME }}
+          remote-password: ${{ secrets.SSH_PASSWORD || secrets.FTP_PASSWORD }}
+          local-path: "./wp-content/themes/jewellery_wp"
+          remote-path: "public_html/wordpress/wp-content/themes/jewellery_wp"
+          sync: "full"
